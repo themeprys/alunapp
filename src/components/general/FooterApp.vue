@@ -13,21 +13,25 @@
       <div class="q-gutter-y-md" style="max-width: 600px">
         <q-tabs v-model="tab">
           <q-tab
+            label="Explore"
             name="mails"
             icon="fa-solid fa-greater-than-equal"
             class="text-lowercase"
           />
           <q-tab
+            label="Now Playing"
             name="alarms"
             icon="fa-solid fa-podcast"
             class="text-lowercase"
           />
           <q-tab
+            label="updates"
             name="alarms"
             icon="fa-regular fa-eye"
             class="text-lowercase"
           />
           <q-tab
+            label="more"
             name="movies"
             icon="fa-solid fa-bars-staggered"
             @click="toggleLeftDrawer"
