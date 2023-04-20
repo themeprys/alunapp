@@ -1,9 +1,9 @@
 <template>
   <!-- Featured -->
   <div class="row q-my-md">
-    <!-- <div class="col-12">
-      <p class="text-h6">Featured</p>
-    </div> -->
+    <div class="col-12">
+      <p class="text-subtitle1">Welcome, Beta Tester</p>
+    </div>
     <div class="col-12">
       <q-carousel
         animated

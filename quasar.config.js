@@ -28,6 +28,8 @@ module.exports = configure(function (ctx) {
     boot: [
       'i18n',
       'axios',
+      'apollo',
+      // 'filterDate',
     ],
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-css
@@ -72,21 +74,42 @@ module.exports = configure(function (ctx) {
 
       // https://v2.quasar.dev/quasar-cli-webpack/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
+
       
+      chainWebpack (chain, { isServer, isClient }) {
+        chain.module.rule('vue')
+          .use('vue-loader')
+          .loader('vue-loader')
+          .tap(options => {
+            options.transpileOptions = {
+              transforms: {
+                dangerousTaggedTemplateString: true
+              }
+            }
+            return options
+          })
+      },      
       chainWebpack (chain) {
         chain.plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: [ 'js', 'vue' ] }])
+          
       }
       
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
     devServer: {
-      server: {
-        type: 'http'
-      },
-      port: 8080,
-      open: true // opens browser window automatically
+      proxy: {
+        '/api': {
+          target: 'http://localhost:1337',
+          changeOrigin: true
+        }
+      }
+      // server: {
+      //   type: 'http'
+      // },
+      // port: 8080,
+      // open: true // opens browser window automatically
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework

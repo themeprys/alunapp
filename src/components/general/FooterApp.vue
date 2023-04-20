@@ -12,19 +12,25 @@
     <q-footer elevated class="bg-white text-dark">
       <div class="q-gutter-y-md" style="max-width: 600px">
         <q-tabs v-model="tab">
-          <q-tab
+          <q-route-tab
+            to="/"
+            label="Playing"
+            name="alarms"
+            icon="fa-solid fa-podcast"
+            class="text-lowercase"
+            exact
+          />
+          <q-route-tab
+            to="/explore"
             label="Explore"
             name="mails"
             icon="fa-solid fa-greater-than-equal"
             class="text-lowercase"
+            exact
           />
-          <q-tab
-            label="Now Playing"
-            name="alarms"
-            icon="fa-solid fa-podcast"
-            class="text-lowercase"
-          />
-          <q-tab
+
+          <q-route-tab
+            to="/updates"
             label="updates"
             name="alarms"
             icon="fa-regular fa-eye"
