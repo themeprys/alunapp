@@ -12,7 +12,6 @@
     </div>
     <div class="col-12">
       <q-btn-group spread class="shadow-0">
-        <!-- <q-btn v-if="!isPlaying" @click="play" /> -->
         <q-btn v-on:click="togglePlay">
           {{ isPlaying ? "Pause" : "Play" }}
         </q-btn>
