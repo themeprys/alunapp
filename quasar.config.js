@@ -101,7 +101,7 @@ module.exports = configure(function (ctx) {
     devServer: {
       proxy: {
         '/api': {
-          target: 'http://localhost:1337',
+          target: 'https://api.alun.app',
           changeOrigin: true
         }
       }

@@ -15,7 +15,7 @@
         <router-link :to="`/updates/` + update.attributes.slug">
           <q-img
             :src="
-              `http://localhost:1337` +
+              `https://api.alun.app` +
               update.attributes.cover.data.attributes.url
             "
             :ratio="1"

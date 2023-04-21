@@ -4,7 +4,7 @@
       <div class="col">
         <q-img
           :src="
-            `http://localhost:1337` +
+            `https://api.alun.app` +
             result.moods.data[0].attributes.icon.data.attributes.url
           "
           :ratio="1"
@@ -36,7 +36,7 @@
     >
       <audio
         v-bind:src="
-          `http://localhost:1337` + song.attributes.audio.data.attributes.url
+          process.env.GRAPHQL_URI + song.attributes.audio.data.attributes.url
         "
         preload="auto"
         autoplay
@@ -45,7 +45,7 @@
     </div> -->
 
     <!-- <audio
-      :src="`http://localhost:1337` + song.attributes.audio.data.attributes.url"
+      :src="process.env.GRAPHQL_URI + song.attributes.audio.data.attributes.url"
       preload="auto"
       autoplay
       ref="audioPlayer"
@@ -57,7 +57,7 @@
     >
       <audio
         v-bind:src="
-          `http://localhost:1337` + song.attributes.audio.data.attributes.url
+          process.env.GRAPHQL_URI + song.attributes.audio.data.attributes.url
         "
         preload="auto"
         autoplay
@@ -88,7 +88,7 @@
     </button> -->
     <!-- <audio
       v-bind:src="
-        `http://localhost:1337` + song.attributes.audio.data.attributes.url
+        process.env.GRAPHQL_URI + song.attributes.audio.data.attributes.url
       "
       preload="auto"
       autoplay
@@ -106,7 +106,7 @@
     >
       <audio
         v-bind:src="
-          `http://localhost:1337` + song.attributes.audio.data.attributes.url
+          process.env.GRAPHQL_URI + song.attributes.audio.data.attributes.url
         "
         preload="auto"
         autoplay

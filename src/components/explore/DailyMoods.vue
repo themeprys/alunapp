@@ -12,15 +12,6 @@
           </q-chip>
         </router-link>
       </div>
-      <!-- <div><q-chip color="dark" text-color="white">Recovery</q-chip></div> -->
-      <!-- <div><q-chip color="dark" text-color="white">Self Care</q-chip></div>
-      <div><q-chip color="dark" text-color="white">Meditation</q-chip></div>
-      <div><q-chip color="dark" text-color="white">Deep Work</q-chip></div>
-      <div><q-chip color="dark" text-color="white">Deep Sleep</q-chip></div>
-      <div><q-chip color="dark" text-color="white">Recovery</q-chip></div>
-      <div><q-chip color="dark" text-color="white">Self Care</q-chip></div>
-      <div><q-chip color="dark" text-color="white">Meditation</q-chip></div>
-      <div><q-chip color="dark" text-color="white">Work</q-chip></div> -->
     </div>
     <div class="col-12 q-pt-md">
       <p>

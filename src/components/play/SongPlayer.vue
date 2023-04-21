@@ -3,7 +3,7 @@
     <div class="col-12">
       <audio
         v-bind:src="
-          `http://localhost:1337` + song.attributes.audio.data.attributes.url
+          `https://api.alun.app` + song.attributes.audio.data.attributes.url
         "
         preload="auto"
         autoplay

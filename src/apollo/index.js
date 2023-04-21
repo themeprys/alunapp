@@ -7,7 +7,7 @@ export /* async */ function getClientOptions(/* {app, router, ...} */ options) {
         uri:
           process.env.GRAPHQL_URI ||
           // Change to your graphql endpoint.
-          'http://localhost:1337/graphql',
+          'https://api.alun.app/graphql',
       }),
       cache: new InMemoryCache(),
     },

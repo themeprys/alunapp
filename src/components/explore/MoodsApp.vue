@@ -9,7 +9,7 @@
         <div class="highlights_item">
           <img
             :src="
-              `http://localhost:1337` + mood.attributes.icon.data.attributes.url
+              `https://api.alun.app` + mood.attributes.icon.data.attributes.url
             "
             class="dot"
           />
