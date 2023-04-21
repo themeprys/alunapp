@@ -17,7 +17,7 @@
         </q-btn>
 
         <q-btn icon="fa-solid fa-shuffle" v-on:click="next" />
-        <q-btn icon="fa-regular fa-clock" />
+        <!-- <q-btn icon="fa-regular fa-clock" /> -->
         <q-btn icon="fa-solid fa-ellipsis" />
       </q-btn-group>
     </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { Ref } from "vue";
+import { ref } from "vue";
 
 export default {
   data() {

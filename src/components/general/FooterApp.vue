@@ -9,7 +9,7 @@
       <drawer-app />
     </q-drawer>
 
-    <q-footer elevated class="bg-white text-dark">
+    <q-footer reveal elevated class="bg-white text-dark">
       <div class="q-gutter-y-md" style="max-width: 600px">
         <q-tabs v-model="tab">
           <q-route-tab
