@@ -1,7 +1,7 @@
 <template>
   <div v-if="result && result.moods">
     <div class="row">
-      <div class="col">
+      <div class="col text-center">
         <q-img
           :src="
             `https://api.alun.app` +

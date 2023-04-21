@@ -1,7 +1,7 @@
 <template>
   <!-- Featured -->
   <div class="row q-my-md">
-    <div class="col-12">
+    <div class="col-12 q-mt-lg">
       <p class="text-subtitle1">Welcome, Beta Tester</p>
     </div>
     <div class="col-12">

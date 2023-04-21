@@ -1,12 +1,12 @@
 <template>
-  <q-page class="q-pa-md aln_nowplaying">
-    <!-- <div class="row">
+  <q-page class="aln_nowplaying">
+    <div class="row q-pa-md">
       <div class="col-12">
         <p class="text-h6">
           <q-icon name="fa-solid fa-podcast" />&nbsp;&nbsp;Now Playing
         </p>
       </div>
-    </div> -->
+    </div>
     <play-now />
     <!-- <div class="row text-center">
       <div class="col">
