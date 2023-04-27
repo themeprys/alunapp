@@ -1,34 +1,36 @@
 <template>
   <!-- Activities -->
-  <div class="row q-mb-md">
-    <div class="col-12">
+  <div class="row">
+    <!-- <div class="col-12">
       <p class="text-h6">Selected Activities</p>
-    </div>
-    <q-list>
-      <router-link
-        :to="`/activities/` + contact.slug"
-        v-for="contact in contacts"
-        :key="contact.id"
-      >
-        <q-item class="bg-dark text-white q-my-sm q-py-md" clickable v-ripple>
-          <q-item-section avatar>
+    </div> -->
+    <div class="col-12">
+      <q-list>
+        <router-link
+          :to="`/activities/` + contact.slug"
+          v-for="contact in contacts"
+          :key="contact.id"
+        >
+          <q-item class="bg-dark text-white q-my-sm q-py-md" clickable v-ripple>
+            <!-- <q-item-section avatar>
             <q-avatar color="white" text-color="dark">
               {{ contact.letter }}
             </q-avatar>
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{ contact.name }}</q-item-label>
-            <q-item-label caption lines="1" class="text-white">{{
-              contact.email
-            }}</q-item-label>
-          </q-item-section>
+          </q-item-section> -->
+            <q-item-section>
+              <q-item-label>{{ contact.name }}</q-item-label>
+              <q-item-label caption lines="1" class="text-white">{{
+                contact.email
+              }}</q-item-label>
+            </q-item-section>
 
-          <q-item-section side>
-            <q-icon name="fa-solid fa-play" color="white" />
-          </q-item-section>
-        </q-item>
-      </router-link>
-    </q-list>
+            <q-item-section side>
+              <q-icon name="fa-solid fa-play" color="white" />
+            </q-item-section>
+          </q-item>
+        </router-link>
+      </q-list>
+    </div>
   </div>
 </template>
 

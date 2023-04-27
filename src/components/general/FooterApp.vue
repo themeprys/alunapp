@@ -9,40 +9,24 @@
       <drawer-app />
     </q-drawer>
 
-    <q-footer reveal elevated class="bg-white text-dark">
+    <q-footer bordered class="bg-white text-dark">
       <div class="q-gutter-y-md" style="max-width: 600px">
         <q-tabs v-model="tab">
-          <q-route-tab
-            to="/"
-            label="Playing"
-            name="alarms"
-            icon="fa-solid fa-podcast"
-            class="text-lowercase"
-            exact
-          />
-          <q-route-tab
-            to="/explore"
-            label="Explore"
-            name="mails"
-            icon="fa-solid fa-greater-than-equal"
-            class="text-lowercase"
-            exact
-          />
+          <a href="/" style="color: #333">
+            <q-tab
+              to="/"
+              name="home"
+              icon="fa-solid fa-home"
+              class="text-lowercase"
+              exact
+            />
+          </a>
+          <q-route-tab name="list" icon="fa-solid fa-search" exact />
+          <q-route-tab name="play" icon="fa-solid fa-play" exact />
 
-          <q-route-tab
-            to="/updates"
-            label="updates"
-            name="alarms"
-            icon="fa-regular fa-eye"
-            class="text-lowercase"
-          />
-          <q-tab
-            label="more"
-            name="movies"
-            icon="fa-solid fa-bars-staggered"
-            @click="toggleLeftDrawer"
-            class="text-lowercase"
-          />
+          <q-route-tab name="shuffle" icon="fa-regular fa-heart" exact />
+
+          <q-route-tab name="more" icon="fa-solid fa-info-circle" exact />
         </q-tabs>
       </div>
     </q-footer>

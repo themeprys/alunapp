@@ -6,12 +6,13 @@
         style="width: 100%"
       >
       </q-img>
-      <p class="text-h6 text-uppercase">Share alun on social media</p>
+      <!-- <p class="text-h6 text-uppercase">About</p> -->
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-        excepturi consequuntur cumque necessitatibus.
+        Elevate your mind with personalized ambient sound. Alun is an AI
+        generated ambient sound that's personalized to improve your mental
+        health daily activities
       </p>
-      <p class="text-h6">SHARE NOW</p>
+      <!-- <p class="text-h6">SHARE NOW</p> -->
     </div>
   </div>
 </template>

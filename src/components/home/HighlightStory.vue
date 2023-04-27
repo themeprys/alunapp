@@ -14,7 +14,7 @@
     </div>
   </div>
 </template>
-
+  
 <script>
 import { useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
@@ -60,8 +60,8 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
+  
+ <style>
 .highlights {
   display: flex;
   justify-content: center;
