@@ -6,11 +6,16 @@
     </div>
     <div class="col-12 flex" v-if="result && result.moods">
       <div v-for="(mood, index) in result.moods.data" :key="index">
-        <router-link :to="`/play/` + mood.attributes.slug">
+        <router-link to="/">
           <q-chip class="glossy" color="dark" text-color="white">
             {{ mood.attributes.title }}
           </q-chip>
         </router-link>
+        <!-- <router-link :to="`/play/` + mood.attributes.slug">
+          <q-chip class="glossy" color="dark" text-color="white">
+            {{ mood.attributes.title }}
+          </q-chip>
+        </router-link> -->
       </div>
     </div>
     <div class="col-12 q-pt-md">

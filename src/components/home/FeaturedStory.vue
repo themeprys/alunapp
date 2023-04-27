@@ -12,7 +12,7 @@
         v-for="(update, index) in listStory"
         :key="index"
       >
-        <router-link :to="`/updates/` + update.attributes.slug">
+        <router-link to="/">
           <q-img
             :src="
               `https://api.alun.app` +
@@ -21,6 +21,16 @@
             :ratio="1"
           />
         </router-link>
+
+        <!-- <router-link :to="`/updates/` + update.attributes.slug">
+          <q-img
+            :src="
+              `https://api.alun.app` +
+              update.attributes.cover.data.attributes.url
+            "
+            :ratio="1"
+          />
+        </router-link> -->
 
         <q-card-section class="q-pl-none">
           <router-link :to="`/updates/` + update.attributes.slug">

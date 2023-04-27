@@ -6,17 +6,13 @@
     </div> -->
     <div class="col-12">
       <q-list>
-        <router-link
+        <router-link to="/" v-for="contact in contacts" :key="contact.id">
+          <!-- <router-link
           :to="`/activities/` + contact.slug"
           v-for="contact in contacts"
           :key="contact.id"
-        >
+        > -->
           <q-item class="bg-dark text-white q-my-sm q-py-md" clickable v-ripple>
-            <!-- <q-item-section avatar>
-            <q-avatar color="white" text-color="dark">
-              {{ contact.letter }}
-            </q-avatar>
-          </q-item-section> -->
             <q-item-section>
               <q-item-label>{{ contact.name }}</q-item-label>
               <q-item-label caption lines="1" class="text-white">{{

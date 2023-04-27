@@ -36,7 +36,34 @@
     <div v-if="isHighlightOn">
       <highlight-on v-bind:mood="listMoods[currentHighlightIndex]" />
     </div>
-    <q-img v-if="!isHighlightOn" src="/img/play.webp" :ratio="1" />
+    <div v-if="!isHighlightOn">
+      <q-img v-if="!isHighlightOn" src="/img/play.webp" :ratio="1" />
+      <featured-app />
+      <daily-moods />
+      <relax-app />
+      <focus-app />
+      <excersize-app />
+      <activities-app />
+      <featured-story />
+      <q-btn
+        color="black"
+        class="full-width q-my-sm"
+        label="Explore More"
+        size="md"
+        to="/updates"
+      />
+      <share-app />
+      <guide-app />
+      <q-separator />
+      <div class="row q-mt-md">
+        <div class="col-12 text-center">
+          <p>
+            Copyright by Rupa Suara Audio Consultant @ 2023<br />All Rights
+            Reseved
+          </p>
+        </div>
+      </div>
+    </div>
   </q-page>
 </template>
   
@@ -51,6 +78,12 @@ import { defineComponent } from "vue";
 import DrawerApp from "components/general/DrawerApp.vue";
 import BarApp from "src/components/BarApp.vue";
 import HighlightOn from "src/components/home/HighlightOn.vue";
+import DailyMoods from "src/components/explore/DailyMoods.vue";
+import ActivitiesApp from "src/components/explore/ActivitiesApp.vue";
+import FeaturedStory from "src/components/home/FeaturedStory.vue";
+
+import GuideApp from "src/components/home/GuideApp.vue";
+import ShareApp from "src/components/home/ShareApp.vue";
 // import SongPlayer from "src/components/play/SongPlayer.vue";
 // import HighlightStory from "src/components/home/HighlightStory.vue";
 
@@ -144,6 +177,11 @@ export default defineComponent({
     DrawerApp,
     BarApp,
     HighlightOn,
+    ActivitiesApp,
+    FeaturedStory,
+    DailyMoods,
+    GuideApp,
+    ShareApp,
   },
   name: "IndexPage",
 });
