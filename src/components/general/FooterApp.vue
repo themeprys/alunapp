@@ -12,15 +12,13 @@
     <q-footer bordered class="bg-white text-dark">
       <div class="q-gutter-y-md" style="max-width: 600px">
         <q-tabs v-model="tab">
-          <a href="/" style="color: #333">
-            <q-tab
-              to="/"
-              name="home"
-              icon="fa-solid fa-home"
-              class="text-lowercase"
-              exact
-            />
-          </a>
+          <q-route-tab
+            to="/"
+            name="home"
+            icon="fa-solid fa-home"
+            class="text-lowercase"
+            exact
+          />
           <q-route-tab name="list" icon="fa-solid fa-search" exact />
           <q-route-tab name="play" icon="fa-solid fa-play" exact />
 

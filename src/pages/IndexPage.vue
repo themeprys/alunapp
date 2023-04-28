@@ -1,6 +1,19 @@
 <template>
   <q-page class="q-pa-md aln_storyhighlight">
-    <div class="row">
+    <q-header class="bg-white text-dark">
+      <q-toolbar>
+        <q-toolbar-title class="text-bold q-ml-sm">A L U N</q-toolbar-title>
+        <q-btn
+          dense
+          flat
+          icon="close"
+          v-if="isHighlightOn && !isFocusOn"
+          @click="closeHighlights()"
+        />
+        <!-- <bar-app /> -->
+      </q-toolbar>
+    </q-header>
+    <!-- <div class="row">
       <div class="col-12">
         <q-header class="bg-white text-dark">
           <q-toolbar>
@@ -17,7 +30,7 @@
           </q-toolbar>
         </q-header>
       </div>
-    </div>
+    </div> -->
     <!-- <highlight-story /> -->
     <div class="highlights" v-if="!isHighlightOn">
       <div class="highlights_wrap text-center" v-if="result && result.moods">
@@ -34,15 +47,44 @@
       </div>
     </div>
     <div v-if="isHighlightOn">
-      <highlight-on v-bind:mood="listMoods[currentHighlightIndex]" />
+      <highlight-on
+        v-bind:mood="listMoods[currentHighlightIndex]"
+        @player-on="focusOn"
+        @explore-on="exploreOn"
+      />
     </div>
     <div v-if="!isHighlightOn">
-      <q-img v-if="!isHighlightOn" src="/img/play.webp" :ratio="1" />
-      <featured-app />
-      <daily-moods />
-      <relax-app />
-      <focus-app />
-      <excersize-app />
+      <q-img src="/img/play.webp" :ratio="1" />
+
+      <div class="row q-mb-md">
+        <div class="col-12">
+          <p class="text-h6">Your Daily Moods</p>
+        </div>
+        <div class="col-12 flex" v-if="result && result.moods">
+          <div v-for="(mood, index) in result.moods.data" :key="index">
+            <div v-on:click="playHighlights(index)">
+              <q-chip class="glossy" color="dark" text-color="white">
+                {{ mood.attributes.title }}
+              </q-chip>
+            </div>
+            <!-- <router-link :to="`/play/` + mood.attributes.slug">
+          <q-chip class="glossy" color="dark" text-color="white">
+            {{ mood.attributes.title }}
+          </q-chip>
+        </router-link> -->
+          </div>
+        </div>
+        <div class="col-12 q-pt-md">
+          <p>
+            Elevate your mind with personalized ambient sound. Alun provide you
+            AI generated ambient sound that's personalized to improve your
+            mental health daily activities
+          </p>
+        </div>
+      </div>
+
+      <div v-if="exploreOn">Explore On</div>
+      <!-- <daily-moods /> -->
       <activities-app />
       <featured-story />
       <q-btn
@@ -64,9 +106,28 @@
         </div>
       </div>
     </div>
+    <q-footer bordered class="bg-white text-dark" v-if="!isFocusOn">
+      <div class="q-gutter-y-md" style="max-width: 600px">
+        <q-tabs v-model="tab">
+          <q-route-tab
+            to="/"
+            name="home"
+            icon="fa-solid fa-home"
+            class="text-lowercase"
+            exact
+          />
+          <q-route-tab name="list" icon="fa-solid fa-search" exact />
+          <q-route-tab name="play" icon="fa-solid fa-play" exact />
+
+          <q-route-tab name="shuffle" icon="fa-regular fa-heart" exact />
+
+          <q-route-tab name="more" icon="fa-solid fa-info-circle" exact />
+        </q-tabs>
+      </div>
+    </q-footer>
   </q-page>
 </template>
-  
+
 <script>
 import { useQuery } from "@vue/apollo-composable";
 import gql from "graphql-tag";
@@ -75,10 +136,10 @@ import { ref } from "vue";
 import { defineComponent } from "vue";
 // import { computed } from "vue";
 
-import DrawerApp from "components/general/DrawerApp.vue";
-import BarApp from "src/components/BarApp.vue";
+// import DrawerApp from "components/general/DrawerApp.vue";
+// import BarApp from "src/components/BarApp.vue";
 import HighlightOn from "src/components/home/HighlightOn.vue";
-import DailyMoods from "src/components/explore/DailyMoods.vue";
+// import DailyMoods from "src/components/explore/DailyMoods.vue";
 import ActivitiesApp from "src/components/explore/ActivitiesApp.vue";
 import FeaturedStory from "src/components/home/FeaturedStory.vue";
 
@@ -91,7 +152,9 @@ export default defineComponent({
   data() {
     return {
       mood: [],
+      isExploreOn: false,
       isHighlightOn: false,
+      isFocusOn: false,
       currentHighlightIndex: 0,
     };
   },
@@ -154,6 +217,7 @@ export default defineComponent({
       }
     `);
     return {
+      tab: ref("mails"),
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
@@ -166,6 +230,18 @@ export default defineComponent({
       this.currentHighlightIndex = index;
       this.isHighlightOn = true;
     },
+    closeHighlights() {
+      this.isHighlightOn = false;
+    },
+    focusOn() {
+      this.isFocusOn = true;
+    },
+    exploreOn() {
+      this.isExploreOn = true;
+      this.isHighlightOn = true;
+      this.isFocusOn = false;
+      console.log("hi explore");
+    },
   },
   computed: {
     listMoods() {
@@ -174,19 +250,19 @@ export default defineComponent({
   },
 
   components: {
-    DrawerApp,
-    BarApp,
+    // DrawerApp,
+    // BarApp,
     HighlightOn,
     ActivitiesApp,
     FeaturedStory,
-    DailyMoods,
+    // DailyMoods,
     GuideApp,
     ShareApp,
   },
   name: "IndexPage",
 });
 </script>
-  
+
 
 <style>
 .highlights {

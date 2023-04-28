@@ -18,7 +18,7 @@
           :ratio="1"
           v-if="startSession"
         />
-        <p class="text-h6 text-center">
+        <p class="text-h6 text-center q-mt-lg">
           {{ mood.attributes.title }}
         </p>
         <p class="text-center">
@@ -46,6 +46,15 @@
           v-bind:frame="listFrames[currentFrameIndex]"
           @next="playNext"
         />
+      </div>
+      <div class="col-12 q-mt-lg" v-if="startSession">
+        <q-btn
+          class="full-width"
+          rounded
+          color="black"
+          @click="exploreSession()"
+          >Explore</q-btn
+        >
       </div>
       <div class="col-12 q-mt-lg" v-if="!startSession">
         <p class="text-bold text-uppercase">{{ mood.attributes.title }}</p>
@@ -91,6 +100,7 @@ export default {
       currentFrameIndex: 0,
     };
   },
+  emits: ["playerOn", "exploreOn"],
   components: {
     SessionPlayer,
   },
@@ -101,11 +111,15 @@ export default {
       url: String,
     },
   },
-  emits: ["next"],
   methods: {
     playSession(index) {
       this.startSession = true;
+      this.$emit("playerOn");
     },
+    exploreSession() {
+      this.$emit("exploreOn");
+    },
+
     playFrame(index) {
       this.currentFrameIndex = index;
       this.$refs.audioPlayer.play();
