@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col">
         <q-btn-group spread class="shadow-0">
+          <q-btn icon="fa-solid fa-shuffle" @click="next" />
           <q-btn
             icon="fa-solid fa-play"
             class="play"
@@ -10,8 +11,6 @@
             @click="play"
           />
           <q-btn icon="fa-solid fa-pause" class="pause" v-else @click="pause" />
-          <q-btn icon="fa-solid fa-shuffle" @click="next" />
-          <q-btn icon="fa-regular fa-clock" />
           <q-btn icon="fa-solid fa-ellipsis" />
         </q-btn-group>
       </div>

@@ -1,66 +1,58 @@
 <template>
-  <!-- Activities -->
-  <div class="row">
+<!-- Activities -->
+<div class="row">
     <!-- <div class="col-12">
       <p class="text-h6">Selected Activities</p>
     </div> -->
     <div class="col-12">
-      <q-list>
-        <router-link to="/" v-for="contact in contacts" :key="contact.id">
-          <!-- <router-link
-          :to="`/activities/` + contact.slug"
-          v-for="contact in contacts"
-          :key="contact.id"
-        > -->
-          <q-item class="bg-dark text-white q-my-sm q-py-md" clickable v-ripple>
-            <q-item-section>
-              <q-item-label>{{ contact.name }}</q-item-label>
-              <q-item-label caption lines="1" class="text-white">{{
+        <q-list>
+            <!-- <router-link to="/" v-for="contact in contacts" :key="contact.id"> -->
+            <router-link :to="`/` + contact.slug" v-for="contact in contacts" :key="contact.id">
+                <q-item class="bg-dark text-white q-my-sm q-py-lg" clickable v-ripple>
+                    <q-item-section>
+                        <q-item-label>{{ contact.name }}</q-item-label>
+                        <q-item-label caption lines="2" class="text-white">{{
                 contact.email
               }}</q-item-label>
-            </q-item-section>
+                    </q-item-section>
 
-            <q-item-section side>
-              <q-icon name="fa-solid fa-play" color="white" />
-            </q-item-section>
-          </q-item>
-        </router-link>
-      </q-list>
+                    <q-item-section side>
+                        <q-avatar rounded>
+                            <img src="/img/aktivitas.webp">
+                        </q-avatar>
+                    </q-item-section>
+                </q-item>
+            </router-link>
+        </q-list>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
-const contacts = [
-  {
-    id: 1,
-    name: "Relax",
-    email: "Improve relaxation on your daily break",
-    letter: "R",
-    slug: "relax",
-  },
-  {
-    id: 2,
-    name: "Focus",
-    email: "Boost focus with concentration",
-    letter: "F",
-    slug: "focus",
-  },
-  {
-    id: 3,
-    name: "Excercise",
-    email: "Pick your favourite workout",
-    letter: "E",
-    slug: "excercise",
-  },
+const contacts = [{
+        id: 1,
+        name: "Fokus",
+        email: "Membantu fokus untuk bekerja, belajar, atau aktivitas yang membutuhkan konsentrasi",
+        letter: "F",
+        slug: "fokus",
+        src: '/img/aktivitas.webp'
+    },
+    {
+        id: 2,
+        name: "Relax",
+        email: "Mendukung relaksasi untuk ketenangan pikiran dan istirahat tubuh",
+        letter: "R",
+        slug: "relax",
+        src: '/img/aktivitas.webp'
+    }
 ];
 
 export default {
-  setup() {
-    return {
-      contacts,
-    };
-  },
+    setup() {
+        return {
+            contacts,
+        };
+    },
 };
 </script>
 

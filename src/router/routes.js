@@ -5,6 +5,9 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
+      { path: 'onboard', component: () => import('pages/OnboardingPage.vue') },            
+      { path: 'fokus', component: () => import('pages/FokusPage.vue') },      
+      { path: 'relax', component: () => import('pages/RelaxPage.vue') },                  
       { path: 'explore', component: () => import('pages/ExplorePage.vue') },      
       { path: 'nowplaying', component: () => import('pages/NowplayingPage.vue') },      
       { path: 'updates', component: () => import('pages/UpdatesPage.vue') },
