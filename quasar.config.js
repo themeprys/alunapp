@@ -143,11 +143,15 @@ module.exports = configure(function (ctx) {
     // https://v2.quasar.dev/quasar-cli-webpack/developing-ssr/configuring-ssr
     ssr: {
       pwa: false,
+      manualStoreSerialization: false,
+      manualStoreSsrContextInjection: false,
+      manualStoreHydration: false,
+      manualPostHydrationTrigger: false,
 
       // manualStoreHydration: true,
       // manualPostHydrationTrigger: true,
 
-      prodPort: 3000, // The default port that the production server should use
+      prodPort: 3030, // The default port that the production server should use
                       // (gets superseded if process.env.PORT is specified at runtime)
 
       maxAge: 1000 * 60 * 60 * 24 * 30,
