@@ -86,8 +86,8 @@
     <q-footer bordered class="bg-white text-dark" v-if="!isFocusOn">
         <div class="q-gutter-y-md" style="max-width: 600px">
             <q-tabs v-model="tab" inline-label>
-                <q-route-tab href="https://beta1-dashboard.alun.app/" name="home" label="beranda" class="text-lowercase"/>
-                <q-route-tab to="/" name="home" label="aktivitas"  class="text-lowercase"/>                
+                <q-route-tab href="https://beta.alun.app/" name="home" label="beranda" class="text-lowercase"/>
+                <q-route-tab to="/aktivitas" name="home" label="aktivitas"  class="text-lowercase"/>                
                 <q-route-tab to="/fokus" name="home" label="fokus"  class="text-lowercase"/>                
                 <q-route-tab to="/relax" name="home" label="relax"  class="text-lowercase"/>
               </q-tabs>

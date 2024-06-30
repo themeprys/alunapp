@@ -37,10 +37,10 @@
     <!-- <player-only /> -->
     <div class="row q-mt-xl q-pt-sm">
         <div class="col q-pa-xs">
-            <q-btn href="https://beta1-dashboard.alun.app/" color="black" class="full-width" label="Alun" size="md" />
+            <q-btn href="https://beta.alun.app/" color="black" class="full-width" label="Alun" size="md" />
         </div>
         <div class="col q-pa-xs">
-            <q-btn to="/" color="black" class="full-width" label="Aktivitas" size="md" />
+            <q-btn to="/aktivitas" color="black" class="full-width" label="Aktivitas" size="md" />
         </div>
     </div>
     <!-- <div>{{ store.isPlaying }}</div>
