@@ -1,16 +1,26 @@
-import { createHttpLink, InMemoryCache } from '@apollo/client/core'
-export /* async */ function getClientOptions(/* {app, router, ...} */ options) {
+import { createHttpLink } from '@apollo/client/link/http/index.js'
+import { InMemoryCache } from '@apollo/client/cache/index.js'
+
+
+export /* async */ function getClientOptions(
+  // eslint-disable-next-line no-unused-vars
+  /* {app, router, ...} */ options
+) {
+  const httpLink = createHttpLink({
+    uri:
+      process.env.GRAPHQL_URI ||
+      // Change to your graphql endpoint.
+      '/graphql',
+  })
+
   return Object.assign(
     // General options.
     {
-      link: createHttpLink({
-        uri:
-          process.env.GRAPHQL_URI ||
-          // Change to your graphql endpoint.
-          'https://api.alun.app/graphql',
-      }),
+      link: httpLink,
+
       cache: new InMemoryCache(),
     },
+
     // Specific Quasar mode options.
     process.env.MODE === 'spa'
       ? {
@@ -47,6 +57,7 @@ export /* async */ function getClientOptions(/* {app, router, ...} */ options) {
           //
         }
       : {},
+
     // dev/prod options.
     process.env.DEV
       ? {
@@ -58,6 +69,7 @@ export /* async */ function getClientOptions(/* {app, router, ...} */ options) {
           //
         }
       : {},
+
     // For ssr mode, when on server.
     process.env.MODE === 'ssr' && process.env.SERVER
       ? {

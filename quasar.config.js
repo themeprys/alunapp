@@ -88,13 +88,20 @@ module.exports = configure(function (ctx) {
             }
             return options
           })
+      },      
+      
+      chainWebpack (chain) {
+        chain.plugin('eslint-webpack-plugin')
+          .use(ESLintPlugin, [{ extensions: [ 'js', 'vue' ] }])
           chain.module.rule('gql')
           .test(/\.(graphql|gql)$/)
           .use('graphql-tag/loader')
-          .loader('graphql-tag/loader')          
-      },      
+          .loader('graphql-tag/loader')
+       
+          
+      }
+      
     },
-
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
     devServer: {
       proxy: {
@@ -249,8 +256,6 @@ module.exports = configure(function (ctx) {
         chain.plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: [ 'js' ] }])
       },
-      
-
       
       chainWebpackPreload (chain) {
         chain.plugin('eslint-webpack-plugin')

@@ -23,24 +23,23 @@
         </div>
     </div>
     <!-- <player-app /> -->
-    <div class="row q-mb-lg q-pb-lg">
+    <!-- <div class="row q-mb-lg q-pb-lg">
         <div class="col">
             <q-btn-group spread class="shadow-0">
             <q-btn icon="fa-solid fa-shuffle" @click="next" />
                 <q-btn icon="fa-solid fa-play" class="play" v-if="!isPlaying" @click="play" />
                 <q-btn icon="fa-solid fa-pause" class="pause" v-else @click="pause" />
-                <!-- <q-btn icon="fa-regular fa-clock" /> -->
                 <q-btn icon="fa-solid fa-ellipsis" />
             </q-btn-group>
         </div>
-    </div>
-    <!-- <player-only /> -->
+    </div> -->
+    <player-fokus />
     <div class="row q-mt-xl q-pt-sm">
         <div class="col q-pa-xs">
-            <q-btn href="https://beta1-dashboard.alun.app/" color="black" class="full-width" label="Alun" size="md" />
+            <q-btn href="https://beta.alun.app/" color="black" class="full-width" label="Alun" size="md" />
         </div>
         <div class="col q-pa-xs">
-            <q-btn to="/" color="black" class="full-width" label="Aktivitas" size="md" />
+            <q-btn to="/aktivitas" color="black" class="full-width" label="Aktivitas" size="md" />
         </div>
     </div>
     <!-- <div>{{ store.isPlaying }}</div>
@@ -74,17 +73,6 @@
 </template>
 
 <script>
-// import PlayerApp from "src/components/PlayerApp.vue";
-// import FeaturedApp from "src/components/home/FeaturedApp.vue";
-// import FeaturedStory from "src/components/home/FeaturedStory.vue";
-// import RelaxApp from "src/components/home/RelaxApp.vue";
-// import FocusApp from "src/components/home/FocusApp.vue";
-// import ExcersizeApp from "src/components/home/ExcersizeApp.vue";
-
-// import GuideApp from "src/components/home/GuideApp.vue";
-// import ShareApp from "src/components/home/ShareApp.vue";
-// import PlayerApp from "src/components/PlayerApp.vue";
-// import PlayerOnly from "src/components/PlayerOnly.vue";
 import {
     defineComponent
 } from "vue";
@@ -96,13 +84,16 @@ import {
     computed
 } from "vue";
 
+import PlayerFokus from "src/components/PlayerFokus.vue";
+// import PlayerOnly from "src/components/PlayerOnly.vue";
+
 export default defineComponent({
-    data() {
-        return {
-            current: {},
-            index: 0,
-            isPlaying: false,
-            songs: [{
+  data() {
+    return {
+      current: {},
+      index: 0,
+      isPlaying: false,
+      songs: [{
                     title: "Forest Stream",
                     artist: "Aghi",
                     src: "https://api.alun.app/uploads/focus_6bc7430384.mp3",
@@ -113,81 +104,100 @@ export default defineComponent({
                     src: "https://api.alun.app/uploads/focus_6bc7430384.mp3",
                 },
             ],
-            player: new Audio(),
-        };
+      player: new Audio(),
+    };
+  },
+  methods: {
+    autoloading() {
+      if ((this.isPlaying = true)) {
+        console.log(this.isPlaying);
+      }
     },
-    methods: {
-        autoloading() {
-            if ((this.isPlaying = true)) {
-                console.log(this.isPlaying);
-            }
-        },
-        play(song) {
-            if (typeof song.src != "undefined") {
-                this.current = song;
-                this.player.src = this.current.src;
-            }
-            this.player.play({
-                // autoplay: false,
-            });
-            this.player.addEventListener(
-                "ended",
-                function () {
-                    this.index++;
-                    if (this.index > this.songs.length - 1) {
-                        this.index = 0;
-                    }
-                    this.current = this.songs[this.index];
-                    this.play(this.current);
-                }.bind(this)
-            );
-            this.isPlaying = true;
-        },
-        pause() {
-            this.player.pause();
-            this.isPlaying = false;
-        },
-        next() {
-            this.index++;
-            if (this.index > this.songs.length - 1) {
-                this.index = 0;
-            }
-            this.current = this.songs[this.index];
-            this.play(this.current);
-        },
-        prev() {
-            this.index--;
-            if (this.index < 0) {
-                this.index = this.songs.length - 1;
-            }
-            this.current = this.songs[this.index];
-            this.play(this.current);
-        },
-    },
-    beforeMount() {
-        // this.player.src = this.current.src;
-        // this.autoloading();
-    },
-    created() {
-        this.current = this.songs[this.index];
+    play(song) {
+      if (typeof song.src != "undefined") {
+        this.current = song;
         this.player.src = this.current.src;
-        // this.player.play({
-        //   autoplay: true,
-        // });
+      }
+      this.player.play({
+        autoplay: false,
+      });
+      this.player.addEventListener(
+        "ended",
+        function () {
+          this.index++;
+          if (this.index > this.songs.length - 1) {
+            this.index = 0;
+          }
+          this.current = this.songs[this.index];
+          this.play(this.current);
+        }.bind(this)
+      );
+      this.play(this.current);
+      this.isPlaying = true;
     },
-    components: {
-        // PlayerOnly,
-        // PlayerApp,
-        // FeaturedApp,
-        // ActivitiesApp,
-        // FeaturedStory,
-        // ExcersizeApp,
-        // RelaxApp,
-        // FocusApp,
-        // GuideApp,
-        // ShareApp,
+    pause() {
+      this.player.pause();
+      this.isPlaying = false;
     },
-    name: "IndexPage",
+    next() {
+      this.index++;
+      if (this.index > this.songs.length - 1) {
+        this.index = 0;
+      }
+      this.current = this.songs[this.index];
+      this.play(this.current);
+    },
+    prev() {
+      this.index--;
+      if (this.index < 0) {
+        this.index = this.songs.length - 1;
+      }
+      this.current = this.songs[this.index];
+      this.play(this.current);
+    },
+  },
+  created() {
+    this.current = this.songs[this.index];
+    this.player.src = this.current.src;
+    // console.log("created");
+    // this.player.play({
+    //   autoplay: true,
+    // });
+  },
+
+  //   created() {
+  //     console.log(this.msg);
+  //   },
+  beforeMount() {
+    // console.log("before mount");
+    this.isPlaying = false;
+    this.player.src = this.current.src;
+    this.autoloading();
+  },
+  mounted() {
+    // console.log("mounted");
+  },
+  unmounted() {
+    console.log("beforeDestroy hook called");
+    this.msg = null;
+    delete this.msg;
+    this.isPlaying = false;
+    // console.log("destroyed");
+  },
+  components: {
+    // PlayerOnly,
+    PlayerFokus,
+    // PlayerApp,
+    // FeaturedApp,
+    // ActivitiesApp,
+    // FeaturedStory,
+    // ExcersizeApp,
+    // RelaxApp,
+    // FocusApp,
+    // GuideApp,
+    // ShareApp,
+  },
+  name: "IndexPage",
 });
 </script>
 
