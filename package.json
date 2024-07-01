@@ -6,6 +6,9 @@
   "author": "themeprys@gmail.com",
   "private": true,
   "scripts": {
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && quasar dev",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider quasar build -m spa",
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && node dist/spa/index.js",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0"
